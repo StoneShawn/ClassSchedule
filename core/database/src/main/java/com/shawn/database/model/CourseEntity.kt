@@ -13,7 +13,7 @@ data class CourseEntity(
     @PrimaryKey
     val id: Int,
     @ColumnInfo(name = "success_criteria")
-    val successCriteria: com.shawn.network.model.SuccessCriteria,
+    val successCriteria: SuccessCriteria,
     @ColumnInfo(name = "num_sold_tickets")
     val numSoldTickets: Int,
     val status: String,
