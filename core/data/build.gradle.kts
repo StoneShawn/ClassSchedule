@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shawn.database"
+    namespace = "com.shawn.data"
     compileSdk = 33
 
     defaultConfig {
@@ -33,8 +33,9 @@ android {
 }
 
 dependencies {
-
     implementation(project(":core:model"))
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
@@ -47,10 +48,7 @@ dependencies {
     // koin
     implementation("io.insert-koin:koin-android:3.4.2")
 
-    // room
-    implementation("androidx.room:room-runtime:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
-    implementation("androidx.room:room-compiler:2.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     // coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")

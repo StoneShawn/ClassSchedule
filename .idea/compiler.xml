@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="android-recruit-project.app" target="17" />
+      <module name="android-recruit-project.core.data" target="17" />
       <module name="android-recruit-project.core.database" target="17" />
       <module name="android-recruit-project.core.network" target="17" />
       <module name="android-recruit-project.core.repository" target="17" />
