@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="android-recruit-project.app" target="17" />
+      <module name="android-recruit-project.core.database" target="17" />
+      <module name="android-recruit-project.core.network" target="17" />
+      <module name="android-recruit-project.core.repository" target="17" />
+      <module name="android-recruit-project.data" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,9 +1,10 @@
 package shawn
 
 import android.app.Application
-import com.example.data.di.networkServiceModule
+import com.example.data.external.di.networkServiceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import shawn.di.repositoryModule
 
 class CourseApplication : Application() {
 
@@ -16,7 +17,7 @@ class CourseApplication : Application() {
         startKoin {
             androidContext(this@CourseApplication)
             modules(
-                networkServiceModule
+                networkServiceModule,repositoryModule
             )
         }
     }

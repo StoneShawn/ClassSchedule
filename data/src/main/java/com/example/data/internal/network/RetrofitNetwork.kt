@@ -1,13 +1,13 @@
-package com.example.data.network
+package com.example.data.internal.network
 
+import com.example.data.model.Course
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
-fun networkProvider(): Retrofit {
+fun retrofitNetwork(): Retrofit{
     val client = OkHttpClient.Builder()
         .connectionSpecs(
             listOf(ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT)
@@ -17,9 +17,8 @@ fun networkProvider(): Retrofit {
         .build()
 
     return Retrofit.Builder()
-        .baseUrl("baseUrl")
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    .baseUrl("baseUrl")
+    .client(client)
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
 }
-
