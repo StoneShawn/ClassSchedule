@@ -1,4 +1,4 @@
-package shawn.ui.class_schedule.list
+package shawn.ui.course.list
 
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
@@ -6,11 +6,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import `in`.hahow.android_recruit_project.R
-import `in`.hahow.android_recruit_project.databinding.ItemClassScheduleListBinding
+import `in`.hahow.android_recruit_project.databinding.ItemCourseListBinding
 import shawn.util.GlideApp
 import shawn.util.UiUtils
 
-class ClassScheduleListViewHolder(private val binding: ItemClassScheduleListBinding) :
+class CourseListViewHolder(private val binding: ItemCourseListBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun setData(data: ClassSchedule) {

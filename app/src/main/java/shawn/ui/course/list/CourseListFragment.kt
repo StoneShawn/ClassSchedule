@@ -1,21 +1,21 @@
-package shawn.ui.class_schedule.list
+package shawn.ui.course.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import `in`.hahow.android_recruit_project.databinding.FragmentClassScheduleListBinding
+import `in`.hahow.android_recruit_project.databinding.FragmentCourseListBinding
 import shawn.base.BaseFragment
 
-class ClassScheduleListFragment : BaseFragment() {
+class CourseListFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentClassScheduleListBinding
-    private val classScheduleListAdapter: ClassScheduleListAdapter by lazy {
-        ClassScheduleListAdapter()
+    private lateinit var binding: FragmentCourseListBinding
+    private val classScheduleListAdapter: CourseListAdapter by lazy {
+        CourseListAdapter()
     }
     companion object {
-        fun newInstance(): ClassScheduleListFragment {
-            return ClassScheduleListFragment()
+        fun newInstance(): CourseListFragment {
+            return CourseListFragment()
         }
     }
 
@@ -24,7 +24,7 @@ class ClassScheduleListFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentClassScheduleListBinding.inflate(inflater,container,false)
+        binding = FragmentCourseListBinding.inflate(inflater,container,false)
         return binding.root
     }
 

@@ -1,24 +1,24 @@
-package shawn.ui.class_schedule.list
+package shawn.ui.course.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import `in`.hahow.android_recruit_project.databinding.ItemClassScheduleListBinding
+import `in`.hahow.android_recruit_project.databinding.ItemCourseListBinding
 import java.io.Serializable
 
-class ClassScheduleListAdapter : ListAdapter<ClassSchedule, ClassScheduleListViewHolder>(DiffCallBack()) {
+class CourseListAdapter : ListAdapter<ClassSchedule, CourseListViewHolder>(DiffCallBack()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassScheduleListViewHolder {
-        return ClassScheduleListViewHolder(
-            ItemClassScheduleListBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder {
+        return CourseListViewHolder(
+            ItemCourseListBinding.inflate(
                 LayoutInflater
                     .from(parent.context), parent, false
             )
         )
     }
 
-    override fun onBindViewHolder(holder: ClassScheduleListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CourseListViewHolder, position: Int) {
         currentList[position]?.let {
             holder.setData(it)
         }

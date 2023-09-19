@@ -3,7 +3,7 @@ package shawn
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import `in`.hahow.android_recruit_project.R
-import shawn.ui.class_schedule.ClassScheduleActivity
+import shawn.ui.course.ClassScheduleActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

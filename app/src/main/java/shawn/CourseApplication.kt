@@ -1,11 +1,11 @@
 package shawn
 
 import android.app.Application
-import com.example.data.di.NetworkServiceModule
+import com.example.data.di.networkServiceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class ClassScheduleApplication : Application() {
+class CourseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -14,9 +14,9 @@ class ClassScheduleApplication : Application() {
 
     private fun startKoinApplication(){
         startKoin {
-            androidContext(this@ClassScheduleApplication)
+            androidContext(this@CourseApplication)
             modules(
-                NetworkServiceModule
+                networkServiceModule
             )
         }
     }

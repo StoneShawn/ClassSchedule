@@ -1,4 +1,4 @@
-package shawn.ui.class_schedule
+package shawn.ui.course
 
 interface ClassScheduleActivityHandler {
 
