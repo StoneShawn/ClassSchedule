@@ -2,14 +2,24 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("com.google.devtools.ksp") version "1.8.0-1.0.8"
 }
 
 android {
     namespace = "com.shawn.database"
     compileSdk = 33
 
+
+
     defaultConfig {
         minSdk = 31
+
+
+        kapt{
+            arguments{
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

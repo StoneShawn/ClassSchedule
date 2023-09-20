@@ -27,7 +27,13 @@ class OfflineFirstCourseRepository(
     }
 
     override suspend fun syncWith(): Boolean {
-        courseDao.upsertCourse(entities = network.getCourse().map(NetworkCourse::asEntity))
+        courseDao.deleteAll()
+        courseDao.insertOrIgnoreCourse(
+            courseEntities = network.getCourse()
+                .map(NetworkCourse::asEntity)
+//                .distinctBy(CourseEntity::id)
+        )
+//        courseDao.upsertCourse(entities = network.getCourse().map(NetworkCourse::asEntity))
         return true
     }
 }

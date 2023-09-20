@@ -10,8 +10,7 @@ import com.shawn.model.SuccessCriteria
     tableName = "course"
 )
 data class CourseEntity(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)  val id: Int = 0,
     @ColumnInfo(name = "success_criteria")
     val successCriteria: SuccessCriteria,
     @ColumnInfo(name = "num_sold_tickets")

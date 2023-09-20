@@ -37,6 +37,6 @@ class RetrofitNetwork(networkJson: Json, context: Context) : NetworkDataSource {
         .create(RetrofitNetworkApi::class.java)
 
     override suspend fun getCourse(): List<NetworkCourse> {
-        return retrofit.getCourse()
+        return retrofit.getCourse().data
     }
 }
