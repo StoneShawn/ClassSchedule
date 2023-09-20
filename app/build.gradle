@@ -37,7 +37,10 @@ android {
 }
 
 dependencies {
-    implementation project(':data')
+    implementation(project(":core:data"))
+    implementation(project(":core:model"))
+    implementation(project(":core:network"))
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -59,6 +62,7 @@ dependencies {
     // koin
     implementation "io.insert-koin:koin-core:3.4.2"
     implementation "io.insert-koin:koin-android:3.4.2"
+    implementation("io.insert-koin:koin-androidx-workmanager:3.4.2")
     testImplementation "io.insert-koin:koin-test:3.4.2"
     testImplementation "io.insert-koin:koin-test-junit4:3.4.2"
 

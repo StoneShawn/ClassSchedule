@@ -1,5 +1,7 @@
 package com.shawn.model
 
+import kotlinx.serialization.Serializable
+
 data class Course(
     val successCriteria : SuccessCriteria,
     val numSoldTickets: Int,
@@ -11,6 +13,8 @@ data class Course(
     val coin : Int
 )
 
+
+@Serializable
 data class SuccessCriteria(
     val numSoldTickets: Int
 )

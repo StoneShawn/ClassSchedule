@@ -1,23 +1,22 @@
 package shawn
 
 import android.app.Application
-import com.example.data.external.di.networkServiceModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import shawn.di.repositoryModule
+import shawn.di.mainAppModule
 
-class CourseApplication : Application() {
+class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+        startKoinApplication()
     }
 
     private fun startKoinApplication(){
         startKoin {
-            androidContext(this@CourseApplication)
+            androidContext(this@MainApplication)
             modules(
-                networkServiceModule,repositoryModule
+               mainAppModule
             )
         }
     }
