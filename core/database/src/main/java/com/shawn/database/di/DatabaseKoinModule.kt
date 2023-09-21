@@ -1,18 +1,18 @@
 package com.shawn.database.di
 
 import androidx.room.Room
-import com.shawn.database.Database
+import com.shawn.database.AppDatabase
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-val databaseKoinModule = module {
+val appDatabaseKoinModule = module {
     single {
         Room.databaseBuilder(
             androidContext(),
-            Database::class.java,
+            AppDatabase::class.java,
             "database"
         ).build()
     }
 
-    single { get<Database>().courseDao() }
+    single { get<AppDatabase>().courseDao() }
 }

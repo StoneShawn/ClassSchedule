@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class NetworkCourse(
+    val id: Int,
     val successCriteria : SuccessCriteria,
     val numSoldTickets: Int,
     val status: String,

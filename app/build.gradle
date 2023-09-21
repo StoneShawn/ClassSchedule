@@ -40,6 +40,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:model"))
     implementation(project(":core:network"))
+    implementation(project(":core:sync"))
 
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -52,12 +53,12 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.5.5"
 
     // image
-    implementation ("com.github.bumptech.glide:glide:4.11.0") {
+    implementation("com.github.bumptech.glide:glide:4.16.0") {
         exclude group: "com.android.support"
     }
-    implementation "com.github.bumptech.glide:okhttp3-integration:4.11.0"
-    kapt 'com.github.bumptech.glide:annotations:4.11.0'
-    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "com.github.bumptech.glide:okhttp3-integration:4.12.0"
+    kapt 'com.github.bumptech.glide:annotations:4.16.0'
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
 
     // koin
     implementation "io.insert-koin:koin-core:3.4.2"

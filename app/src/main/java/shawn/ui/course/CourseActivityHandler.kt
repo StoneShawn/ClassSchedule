@@ -1,6 +1,6 @@
 package shawn.ui.course
 
-interface ClassScheduleActivityHandler {
+interface CourseActivityHandler {
 
-    fun goClassScheduleList()
+    fun goCourseList()
 }

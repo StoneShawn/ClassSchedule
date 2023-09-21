@@ -22,11 +22,14 @@ interface CourseDao {
     @Query(value = "SELECT * FROM course")
     fun getCourseListEntitiesStream(): Flow<List<CourseEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertOrIgnoreCourse(courseEntities: List<CourseEntity>): List<Long>
 
     @Update
     suspend fun updateCourse(entities: List<CourseEntity>)
+
+    @Query(value = "UPDATE course SET saved_status = :saved WHERE id = :id")
+    suspend fun updateCourseSave(id: Int, saved: String) : Int
 
     @Upsert
     suspend fun upsertCourse(entities: List<CourseEntity>)
@@ -38,4 +41,7 @@ interface CourseDao {
         """
     )
     suspend fun deleteCourse(ids: List<Int>)
+
+    @Query(value = "DELETE FROM course")
+    suspend fun deleteAll()
 }

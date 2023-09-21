@@ -2,4 +2,11 @@
     <string name="app_name">android-recruit-project</string>
 
     <string name="class_schedule_hot_title">熱門課程</string>
+
+    <string name="course_status_incubation">募資中</string>
+    <string name="course_status_published">已開課</string>
+    <string name="course_status_success">募資成功</string>
+
+
+
 </resources>

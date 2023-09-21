@@ -4,7 +4,7 @@ import com.shawn.database.model.CourseEntity
 import com.shawn.network.model.NetworkCourse
 
 fun NetworkCourse.asEntity() = CourseEntity(
-    id = 0,
+    id = id,
     successCriteria = successCriteria,
     numSoldTickets = numSoldTickets,
     status = status,

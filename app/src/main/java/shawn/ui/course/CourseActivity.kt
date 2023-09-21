@@ -9,7 +9,7 @@ import `in`.hahow.android_recruit_project.R
 import `in`.hahow.android_recruit_project.databinding.ActivityCourseBinding
 import shawn.ui.course.list.CourseListFragment
 
-class ClassScheduleActivity : AppCompatActivity(), ClassScheduleActivityHandler {
+class ClassScheduleActivity : AppCompatActivity(), CourseActivityHandler {
 
     private lateinit var binding: ActivityCourseBinding
 
@@ -27,10 +27,10 @@ class ClassScheduleActivity : AppCompatActivity(), ClassScheduleActivityHandler 
         binding = ActivityCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        goClassScheduleList()
+        goCourseList()
     }
 
-    override fun goClassScheduleList() {
+    override fun goCourseList() {
         supportFragmentManager.commit {
             replace(R.id.frame_layout, CourseListFragment.newInstance())
             setReorderingAllowed(true)

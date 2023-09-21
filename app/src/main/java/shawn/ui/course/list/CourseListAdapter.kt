@@ -4,17 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.shawn.model.Course
 import `in`.hahow.android_recruit_project.databinding.ItemCourseListBinding
-import java.io.Serializable
 
-class CourseListAdapter : ListAdapter<ClassSchedule, CourseListViewHolder>(DiffCallBack()) {
+class CourseListAdapter(val listener: OnClickListener?) : ListAdapter<Course, CourseListViewHolder>(
+    DiffCallBack()
+) {
+
+    interface OnClickListener {
+        fun onSaveClick(id: Int, saved: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder {
         return CourseListViewHolder(
             ItemCourseListBinding.inflate(
                 LayoutInflater
                     .from(parent.context), parent, false
-            )
+            ), saveListener = { id, saved -> listener?.onSaveClick(id, saved) }
         )
     }
 
@@ -24,20 +30,13 @@ class CourseListAdapter : ListAdapter<ClassSchedule, CourseListViewHolder>(DiffC
         }
     }
 
-    class DiffCallBack : DiffUtil.ItemCallback<ClassSchedule>() {
-        override fun areItemsTheSame(oldItem: ClassSchedule, newItem: ClassSchedule): Boolean {
+    class DiffCallBack : DiffUtil.ItemCallback<Course>() {
+        override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ClassSchedule, newItem: ClassSchedule): Boolean {
-            return oldItem.name == newItem.name
+        override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
+            return oldItem.id == newItem.id
         }
-
     }
 }
-
-
-data class ClassSchedule(
-    val name: String,
-    val value: String
-) : Serializable
