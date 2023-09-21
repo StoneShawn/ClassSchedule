@@ -8,10 +8,21 @@
 ## 專案介紹
 - 專案架構為MVVM架構
 - 使用 Flow、coroutine 處理 call api
-- koin 導入依賴注入架構
-- 離線模式
+- koin 導入依賴注入架構 
+- 使用Room 資料庫來作離線模式存儲資料的地方
 - 架構參考[nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end)
 
+## 架構簡介
+- database module : 使用Room來存資料與取資料
+- network module : Retrofit 來取api 或 json的資料
+- data module : 依賴database module、network module 來做資料的處理
+- sync module : 依賴data module 使用CoroutineWorker在App launch時來做後台同步處理，達成預加載減少使用者等待時間(參考[nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end))
+
+### 當app launch時到畫面時
+- application - sync module - data module(network、database) - 儲存進room
+### 畫面到取資料
+- view(fragment) - viewmodel - data module(network、database) - 取得來自room的資料
+  
 ## 主要畫面
 | 畫面 | 介紹 | 
 | - | - | 
