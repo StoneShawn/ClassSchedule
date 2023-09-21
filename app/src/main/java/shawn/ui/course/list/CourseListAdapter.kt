@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.shawn.model.Course
 import `in`.hahow.android_recruit_project.databinding.ItemCourseListBinding
 import java.io.Serializable
 
-class CourseListAdapter : ListAdapter<ClassSchedule, CourseListViewHolder>(DiffCallBack()) {
+class CourseListAdapter : ListAdapter<Course, CourseListViewHolder>(DiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder {
         return CourseListViewHolder(
@@ -24,13 +25,13 @@ class CourseListAdapter : ListAdapter<ClassSchedule, CourseListViewHolder>(DiffC
         }
     }
 
-    class DiffCallBack : DiffUtil.ItemCallback<ClassSchedule>() {
-        override fun areItemsTheSame(oldItem: ClassSchedule, newItem: ClassSchedule): Boolean {
+    class DiffCallBack : DiffUtil.ItemCallback<Course>() {
+        override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ClassSchedule, newItem: ClassSchedule): Boolean {
-            return oldItem.name == newItem.name
+        override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
+            return oldItem.title == newItem.title
         }
 
     }

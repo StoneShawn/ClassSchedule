@@ -7,33 +7,28 @@ import com.shawn.database.model.asExternalModel
 import com.shawn.model.Course
 import com.shawn.network.model.NetworkCourse
 import com.shawn.network.retrofit.RetrofitNetwork
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 
+/**
+ * 實作 [CourseRepository]
+ * 使用syncWith 與 sync module 利用workmanager 在[MainApplication]App執行時在後台執行
+ */
 class OfflineFirstCourseRepository(
-
     private val courseDao: CourseDao,
-    private val network: RetrofitNetwork
+    private val network: RetrofitNetwork,
 ) : CourseRepository {
     override fun getCourseStream(): Flow<List<Course>> {
-        GlobalScope.launch {
-            syncWith()
-        }
         return courseDao.getCourseListEntitiesStream().map {
             it.map(CourseEntity::asExternalModel)
         }
     }
 
     override suspend fun syncWith(): Boolean {
-        courseDao.deleteAll()
         courseDao.insertOrIgnoreCourse(
             courseEntities = network.getCourse()
                 .map(NetworkCourse::asEntity)
-//                .distinctBy(CourseEntity::id)
         )
-//        courseDao.upsertCourse(entities = network.getCourse().map(NetworkCourse::asEntity))
         return true
     }
 }

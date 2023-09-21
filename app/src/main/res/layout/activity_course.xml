@@ -43,6 +43,7 @@
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/gray_e7e7e7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

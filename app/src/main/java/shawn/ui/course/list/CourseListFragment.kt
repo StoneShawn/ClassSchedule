@@ -13,8 +13,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import shawn.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-class CourseListFragment() : BaseFragment() {
+import shawn.ui.course.list.CourseListViewModel.CourseListUiState
+class CourseListFragment : BaseFragment() {
 
     private val viewModel: CourseListViewModel by viewModel()
 
@@ -40,25 +40,34 @@ class CourseListFragment() : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var courseListUiState: CourseListViewModel.CourseListUiState by mutableMapOf()
+        var courseListUiState: CourseListUiState by mutableMapOf()
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.courseListUiState
                     .onEach {
                         courseListUiState = it
+                        initView(courseListUiState)
                     }
                     .collect()
             }
         }
-        initView()
     }
 
-    private fun initView(){
+    private fun initView(state: CourseListUiState){
         binding.recyclerview.adapter = classScheduleListAdapter
-        val list = arrayListOf<ClassSchedule>()
-        list.add(ClassSchedule("123","123"))
-        classScheduleListAdapter.submitList(list)
+
+        when(state){
+            is CourseListUiState.Success -> {
+                classScheduleListAdapter.submitList(state.courseData)
+            }
+            is CourseListUiState.Loading -> {
+
+            }
+            is CourseListUiState.Error -> {
+
+            }
+        }
     }
 
 }

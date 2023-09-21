@@ -26,7 +26,7 @@ class CourseListViewModel(courseRepository: CourseRepository) : ViewModel() {
     private fun courseUiStateStream(
         courseRepository: CourseRepository
     ): Flow<CourseListUiState> {
-        val courseListStream: Flow<List<com.shawn.model.Course>> =
+        val courseListStream: Flow<List<Course>> =
             courseRepository.getCourseStream()
 
         return courseListStream.asResult().map {

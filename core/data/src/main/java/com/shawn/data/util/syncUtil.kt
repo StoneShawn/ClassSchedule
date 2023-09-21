@@ -7,6 +7,10 @@ package com.shawn.data.util
 //     */
 //    suspend fun Syncable.sync() = this@sync.syncWith(this@Synchronizer)
 //}
+
+interface Synchronizer {
+    suspend fun Syncable.sync() = this@sync.syncWith()
+}
 interface Syncable{
     suspend fun syncWith(): Boolean
 }

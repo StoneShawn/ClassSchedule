@@ -7,6 +7,7 @@
       <module name="android-recruit-project.core.database" target="17" />
       <module name="android-recruit-project.core.network" target="17" />
       <module name="android-recruit-project.core.repository" target="17" />
+      <module name="android-recruit-project.core.sync" target="17" />
       <module name="android-recruit-project.data" target="17" />
     </bytecodeTargetLevel>
   </component>
