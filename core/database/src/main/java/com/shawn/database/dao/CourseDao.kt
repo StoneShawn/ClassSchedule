@@ -28,6 +28,9 @@ interface CourseDao {
     @Update
     suspend fun updateCourse(entities: List<CourseEntity>)
 
+    @Query(value = "UPDATE course SET saved_status = :saved WHERE id = :id")
+    suspend fun updateCourseSave(id: Int, saved: String) : Int
+
     @Upsert
     suspend fun upsertCourse(entities: List<CourseEntity>)
 

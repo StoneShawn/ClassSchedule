@@ -1,7 +1,6 @@
 package shawn
 
 import android.app.Application
-import com.shawn.di.syncWorkerKoinModule
 import com.shawn.util.Sync
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.workmanager.koin.workManagerFactory
@@ -13,7 +12,6 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoinApplication()
-
     }
 
     private fun startKoinApplication() {
@@ -24,7 +22,6 @@ class MainApplication : Application() {
                 mainAppModule,
             )
         }
-
         syncData()
     }
 

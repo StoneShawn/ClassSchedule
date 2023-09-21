@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
-class CourseListViewModel(courseRepository: CourseRepository) : ViewModel() {
-
+class CourseListViewModel(private val courseRepository: CourseRepository) : ViewModel() {
 
     val courseListUiState: StateFlow<CourseListUiState> =
         courseUiStateStream(courseRepository).stateIn(
@@ -21,7 +21,6 @@ class CourseListViewModel(courseRepository: CourseRepository) : ViewModel() {
             started = SharingStarted.WhileSubscribed(5_000),
             initialValue = CourseListUiState.Loading
         )
-
 
     private fun courseUiStateStream(
         courseRepository: CourseRepository
@@ -43,6 +42,12 @@ class CourseListViewModel(courseRepository: CourseRepository) : ViewModel() {
                     CourseListUiState.Error
                 }
             }
+        }
+    }
+
+    fun saveCourseToggle(id: Int, saved: String) {
+        viewModelScope.launch {
+            courseRepository.toggleSaveCourse(id,saved)
         }
     }
 

@@ -6,16 +6,21 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.shawn.model.Course
 import `in`.hahow.android_recruit_project.databinding.ItemCourseListBinding
-import java.io.Serializable
 
-class CourseListAdapter : ListAdapter<Course, CourseListViewHolder>(DiffCallBack()) {
+class CourseListAdapter(val listener: OnClickListener?) : ListAdapter<Course, CourseListViewHolder>(
+    DiffCallBack()
+) {
+
+    interface OnClickListener {
+        fun onSaveClick(id: Int, saved: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseListViewHolder {
         return CourseListViewHolder(
             ItemCourseListBinding.inflate(
                 LayoutInflater
                     .from(parent.context), parent, false
-            )
+            ), saveListener = { id, saved -> listener?.onSaveClick(id, saved) }
         )
     }
 
@@ -31,14 +36,7 @@ class CourseListAdapter : ListAdapter<Course, CourseListViewHolder>(DiffCallBack
         }
 
         override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem.id == newItem.id
         }
-
     }
 }
-
-
-data class ClassSchedule(
-    val name: String,
-    val value: String
-) : Serializable

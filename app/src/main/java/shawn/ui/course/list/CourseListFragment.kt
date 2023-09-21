@@ -20,7 +20,11 @@ class CourseListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentCourseListBinding
     private val classScheduleListAdapter: CourseListAdapter by lazy {
-        CourseListAdapter()
+        CourseListAdapter(object : CourseListAdapter.OnClickListener{
+            override fun onSaveClick(id: Int, saved: String) {
+                viewModel.saveCourseToggle(id,saved)
+            }
+        })
     }
 
     companion object {
@@ -41,6 +45,7 @@ class CourseListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var courseListUiState: CourseListUiState by mutableMapOf()
+        binding.recyclerview.adapter = classScheduleListAdapter
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -55,8 +60,6 @@ class CourseListFragment : BaseFragment() {
     }
 
     private fun initView(state: CourseListUiState){
-        binding.recyclerview.adapter = classScheduleListAdapter
-
         when(state){
             is CourseListUiState.Success -> {
                 classScheduleListAdapter.submitList(state.courseData)

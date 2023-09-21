@@ -10,7 +10,7 @@ data class Course(
     val proposalDueTime: String,
     val coverImageUrl: String,
     val title: String,
-    val savedStatus: String,
+    val savedStatus: String = "unsaved",
     val coin: Int
 ) {
     fun getSoldPercent() = successCriteria.numSoldTickets.takeIf { it != 0 }.let {

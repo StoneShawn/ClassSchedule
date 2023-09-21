@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 interface RetrofitNetworkApi {
-//    @Headers("json:true")
+    @Headers("json:true")
     @GET("/hahow/course")
     suspend fun getCourse(): NetworkResponse<List<NetworkCourse>>
 }

@@ -22,7 +22,7 @@ data class CourseEntity(
     @ColumnInfo(name = "cover_image_url")
     val coverImageUrl: String,
     val title: String,
-    @ColumnInfo(name = "saved_status", defaultValue = "unsave")
+    @ColumnInfo(name = "saved_status", defaultValue = "unsaved")
     val savedStatus: String,
     val coin: Int
 )

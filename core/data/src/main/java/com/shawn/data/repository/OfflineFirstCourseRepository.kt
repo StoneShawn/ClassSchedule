@@ -24,6 +24,10 @@ class OfflineFirstCourseRepository(
         }
     }
 
+    override suspend fun toggleSaveCourse(saveCourseId: Int, saved: String): Int {
+        return courseDao.updateCourseSave(saveCourseId, saved)
+    }
+
     override suspend fun syncWith(): Boolean {
         courseDao.insertOrIgnoreCourse(
             courseEntities = network.getCourse()

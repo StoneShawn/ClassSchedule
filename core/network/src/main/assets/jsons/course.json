@@ -18,7 +18,7 @@
       },
       "numSoldTickets": 14,
       "status": "INCUBATING",
-      "proposalDueTime": "2022-01-05T16:00:00.000Z",
+      "proposalDueTime": "2023-09-26T16:00:00.000Z",
       "title": "療癒動物似顏繪：提升插畫魅力的風格提煉術！",
       "coverImageUrl": "https://images.api.hahow.in/images/61aa41c75c11460006886198"
     },
@@ -250,17 +250,7 @@
       },
       "numSoldTickets": 5619,
       "status": "SUCCESS",
-      "title": "RyuuuTV看動漫看日劇，零到N4道地說日文12333",
-      "coverImageUrl": "https://images.api.hahow.in/images/61541433666b1b0006b32be3"
-    },
-    {
-      "id" : 25,
-      "successCriteria": {
-        "numSoldTickets": 30
-      },
-      "numSoldTickets": 5619,
-      "status": "SUCCESS",
-      "title": "R1123123213213yuuuTV看動漫看日劇，零到N4道地說日文12333",
+      "title": "RyuuuTV看動漫看日劇，零到N4道地說日文",
       "coverImageUrl": "https://images.api.hahow.in/images/61541433666b1b0006b32be3"
     }
   ]

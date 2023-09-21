@@ -7,6 +7,10 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 
+/**
+ *  繞過 SSL，用在Glide上
+ *  參考: https://medium.com/@mustafayanik/how-to-fix-android-glide-ssl-exception-ab9b2c4dbada
+ */
 object UnsafeOkHttpClient {
 
     fun getUnsafeOkHttpClient(): OkHttpClient {

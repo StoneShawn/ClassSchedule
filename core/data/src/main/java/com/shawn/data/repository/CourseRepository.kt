@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface CourseRepository: Syncable {
 
     fun getCourseStream(): Flow<List<Course>>
+
+    suspend fun toggleSaveCourse(saveCourseId: Int, saved: String): Int
 }
