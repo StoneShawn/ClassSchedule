@@ -15,7 +15,7 @@
 
 ## 架構簡介
 - database module : 使用Room來存資料與取資料
-- network module : Retrofit 來取api 或 json的資料
+- network module : Retrofit 來取api 或 json的資料、利用Header來決定是否用json加載
 - data module : 依賴database module、network module 來做資料的處理
 - sync module : 依賴data module 使用CoroutineWorker在App launch時來做後台同步處理，達成預加載減少使用者等待時間(參考[nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end))
 
