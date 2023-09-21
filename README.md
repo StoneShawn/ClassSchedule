@@ -12,6 +12,10 @@
 - 離線模式
 - 架構參考[nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end)
 
+## 主要畫面
+| 畫面 | 介紹 | 
+| - | - | 
+| <img src="https://github.com/StoneShawn/ClassSchedule/assets/54303580/1f7aca07-46c2-4c59-a979-083934b5c3d7" height="500"> | 課程頁面</br>- 收藏按鈕處理 </br>- 使用Glide處理圖片 </br>- viewModel使用UiState來更新畫面 | 
 ## 其他
 - 開發時間表
   | 0916 | 0917 | 0918 | 0919 | 0920 | 0921 |
