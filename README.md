@@ -14,6 +14,7 @@
 - 架構參考[nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end)
 
 ## 架構簡介
+Hahow App 有離線也能使用App看資料，所以參考了 [nowinandroid](https://github.com/InsertKoinIO/nowinandroid/tree/refacto_koin/end) 來做離線存取的架構
 - database module : 使用Room來存資料與取資料
 - network module : Retrofit 來取api 或 json的資料、利用Header來決定是否用json加載
 - data module : 依賴database module、network module 來做資料的處理
